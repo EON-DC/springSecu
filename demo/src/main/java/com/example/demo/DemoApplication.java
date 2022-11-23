@@ -8,6 +8,7 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Profile;
 import org.springframework.security.crypto.password.PasswordEncoder;
 
 @SpringBootApplication
@@ -18,6 +19,7 @@ public class DemoApplication {
 	}
 
 	@Bean
+	@Profile(value = "main")
 	CommandLineRunner commandLineRunner(StudentRepository studentRepository, MemberRepository memberRepository
 	, PasswordEncoder passwordEncoder) {
 		return args -> {

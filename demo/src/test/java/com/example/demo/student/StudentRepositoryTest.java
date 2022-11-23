@@ -1,5 +1,6 @@
 package com.example.demo.student;
 
+import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
@@ -14,7 +15,12 @@ class StudentRepositoryTest {
 
     @Autowired
     private StudentRepository studentRepository;
-    private CommandLineRunner commandLineRunner;
+
+    @AfterEach
+    void tearDown() {
+        studentRepository.deleteAll();
+    }
+
 
     @Test
     void itShouldCheckIfStudentExistsEmail() {

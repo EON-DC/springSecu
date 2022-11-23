@@ -19,7 +19,7 @@ public class StudentService {
 
     public void saveStudent(Student student) {
         studentRepository.save(student);
-        log.info("저장되었습니다. 학새 이름 : ",student.getName());
+        log.info("저장되었습니다. 학생 이름 : {}",student.getName());
     }
 
     public List<Student> getAllStudents() {
